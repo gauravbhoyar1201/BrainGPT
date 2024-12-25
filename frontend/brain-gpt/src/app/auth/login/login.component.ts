@@ -21,7 +21,7 @@ export class LoginComponent {
   onLogin(): void {
     this.authService.login(this.username, this.password).subscribe((res) => {
       console.log(res);
-      this.router.navigate(['/quiz/home']);
+      this.router.navigate(['/quiz/home'], { queryParams: { username: this.username } });
     }, (err) => {
       alert('Invalid credentials');
     });
